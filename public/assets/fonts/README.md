@@ -1,0 +1,1 @@
+Las fuentes (Unbounded, Manrope, IBM Plex Sans, IBM Plex Mono) se cargan actualmente desde Google Fonts via @import en src/styles.css. Ver README.md principal para instrucciones de como auto-alojarlas aqui si se prefiere.

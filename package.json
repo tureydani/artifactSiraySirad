@@ -1,0 +1,18 @@
+{
+  "name": "sira-sirad-animatica",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Animática publicitaria interactiva de SIRA (app ciudadana) y SIRAD (panel institucional) con visor 3D del teléfono.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "three": "^0.160.0"
+  },
+  "devDependencies": {
+    "vite": "^5.4.10"
+  }
+}

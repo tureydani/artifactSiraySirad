@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SIRA + SIRAD Animática</title>
+  <meta name="description" content="Animática publicitaria de SIRA (app ciudadana) y SIRAD (panel institucional) — reporte, IA, geolocalización, comunicación y seguimiento." />
+</head>
+<body>
+<div class="wrap">
+  <header class="head">
+    <span class="eyebrow">Animática publicitaria v2 · pantallas reales de SIRA y SIRAD</span>
+    <h1>SIRA + SIRAD</h1>
+    <p>Reconstruida con <b>capturas reales</b> de ambas apps — reportes, mapas y datos reales de una prueba en vivo. Una sola historia: <b>reportar → analizar → recibir → priorizar → asignar → seguir → atender → resolver</b>.</p>
+  </header>
+
+  <div class="reduced-note">
+    <span>Tu sistema pide movimiento reducido — la animática está en pausa.</span>
+    <button id="reducedPlay" type="button">Reproducir igualmente</button>
+  </div>
+
+  <div class="stage-frame" id="stage">
+    <div class="atmosphere" aria-hidden="true">
+      <div class="grid"></div>
+      <svg viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice">
+        <g class="geo-grp">
+          <path class="geo-lnk" d="M50 60 L180 40 L300 95 M180 40 L205 150 M50 60 L45 190 M45 190 L130 275 M130 275 L75 370 M300 95 L420 50 L560 35 L690 90 M690 90 L720 205 M720 205 L650 310 M650 310 L520 375 M520 375 L390 355 M390 355 L300 95 M205 150 L130 275 M420 50 L300 95"/>
+          <path class="geo-flow" d="M50 60 L300 95 L560 35 L720 205"/>
+          <path class="geo-flow" d="M75 370 L390 355 L650 310 L690 90"/>
+          <circle class="geo-nd" cx="50" cy="60" r="2.8"/>
+          <circle class="geo-nd v" cx="180" cy="40" r="2.2"/>
+          <circle class="geo-nd" cx="300" cy="95" r="2.6"/>
+          <circle class="geo-nd v" cx="45" cy="190" r="2.4"/>
+          <circle class="geo-nd" cx="130" cy="275" r="2.6"/>
+          <circle class="geo-nd" cx="75" cy="370" r="2.2"/>
+          <circle class="geo-nd v" cx="420" cy="50" r="2.6"/>
+          <circle class="geo-nd" cx="560" cy="35" r="2.2"/>
+          <circle class="geo-nd" cx="690" cy="90" r="2.8"/>
+          <circle class="geo-nd v" cx="720" cy="205" r="2.4"/>
+          <circle class="geo-nd" cx="650" cy="310" r="2.6"/>
+          <circle class="geo-nd v" cx="520" cy="375" r="2.2"/>
+          <circle class="geo-nd" cx="390" cy="355" r="2.6"/>
+          <circle class="geo-nd" cx="205" cy="150" r="2"/>
+        </g>
+      </svg>
+      <div class="glow"></div>
+      <div class="grain-edge"></div>
+      <div class="vignette"></div>
+    </div>
+    <div class="kicker-live"><span class="dot"></span>EN VIVO · DEMO</div>
+    <div class="clock-live mono" id="clockLive">00:00</div>
+
+    <!-- Scene 1 — Ecosistema -->
+    <div class="scene s1" data-scene="0">
+      <div class="logos-meet">
+        <div class="logo-badge left"><img src="/assets/images/sira_logo.png" alt="Logo SIRA"></div>
+        <div class="spark"></div>
+        <div class="logo-badge right"><img src="/assets/images/sirad_logo.png" alt="Logo SIRAD"></div>
+      </div>
+      <div class="title-block">
+        <h2>Una emergencia. Una conexión.<br>Dos aplicaciones.</h2>
+        <p class="tagline-sub"><span class="a">SIRA</span><span class="b">→ IA →</span><span class="c">SIRAD</span></p>
+        <p class="ai-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="2.6"/><path d="M12 3v3.4M12 17.6V21M3 12h3.4M17.6 12H21M5.6 5.6l2.4 2.4M16 16l2.4 2.4M18.4 5.6 16 8M8 16l-2.4 2.4"/></svg>IA aplicada a la respuesta</p>
+      </div>
+    </div>
+
+    <!-- Scene 2 — El problema -->
+    <div class="scene s2" data-scene="1">
+      <div class="map-bg"><img src="/assets/images/s2_map.jpg" alt=""></div>
+      <span class="map-pin"><span class="ring"></span><span class="core"></span></span>
+      <div class="s2-inner">
+        <div class="copy">
+          <span class="code"><span class="t mono" id="s2timer">00:00</span> · incidente activo</span>
+          <h2>Cuando ocurre una emergencia,<br>cada segundo importa.</h2>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scene 3 — SIRA: el reporte ciudadano -->
+    <div class="scene s-hero" data-scene="2">
+      <div class="hero-copy sira">
+        <span class="app-tag"><img src="/assets/images/sira_logo.png" alt=""><span>SIRA · APP CIUDADANA</span></span>
+        <h2>Reporta en segundos.</h2>
+        <div class="steps">
+          <span>📍 Ubica</span>
+          <span>🤖 Describe con IA</span>
+          <span>🚨 Envía</span>
+        </div>
+      </div>
+      <div class="device3d device-hero dev-sira" id="devSira">
+        <div class="device-tag mono" id="tagSira">Mapa principal</div>
+        <canvas id="canvasSira"></canvas>
+      </div>
+    </div>
+
+    <!-- Scene 4 — El reporte se vuelve incidente operativo -->
+    <div class="scene s4" data-scene="3">
+      <div class="flow-line"></div>
+      <div class="s4-stack">
+        <div class="flow-strip">
+          <span class="node sira on"><b>Reporte</b></span>
+          <span class="arrow">→</span>
+          <span class="node ai on">✦ IA</span>
+          <span class="arrow">→</span>
+          <span class="node sirad on"><b>Clasificación</b></span>
+        </div>
+        <div class="incident-card" id="incidentCard">
+        <div class="top"><b>Incidente detectado</b><span class="id mono">EM-20260914-0020</span></div>
+        <div class="incident-row">
+          <span class="ic" style="color:#FF9F6B"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a6 6 0 1 1-12 0c0-1.677.782-2.7 2.5-4.5"/></svg></span>
+          <span class="tx"><b>Tipo</b>Incendio</span>
+        </div>
+        <div class="incident-row">
+          <span class="ic" style="color:#B590E0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s7-7.58 7-12.5A7 7 0 0 0 5 9.5C5 14.42 12 22 12 22Z"/><circle cx="12" cy="9.5" r="2.3"/></svg></span>
+          <span class="tx"><b>Ubicación</b>Av. Colcapirhua, Quillacollo</span>
+        </div>
+        <div class="incident-row">
+          <span class="ic" style="color:#4BC1EB"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/><circle cx="12" cy="12" r="3.2"/></svg></span>
+          <span class="tx"><b>Reportado por</b>Ciudadano vía SIRA</span>
+        </div>
+        <span class="ai-pill">✦ Descripción estructurada por IA</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scene 5 — SIRAD: recepción y gestión institucional -->
+    <div class="scene s-hero" data-scene="4">
+      <div class="hero-copy sirad">
+        <span class="app-tag"><img src="/assets/images/sirad_logo.png" alt=""><span>SIRAD · PANEL INSTITUCIONAL</span></span>
+        <h2>Gestiona en tiempo real.</h2>
+        <div class="steps">
+          <span>📥 Bandeja en vivo</span>
+          <span>🗺️ Ubicación real</span>
+          <span>💬 Sala y asignación</span>
+        </div>
+      </div>
+      <div class="device3d device-hero dev-sirad" id="devSirad">
+        <div class="device-tag mono" id="tagSirad">Bandeja de emergencias</div>
+        <canvas id="canvasSirad"></canvas>
+      </div>
+    </div>
+
+    <!-- Scene 6 — Asignación de la unidad -->
+    <div class="scene s6" data-scene="5">
+      <div class="hero-copy sirad">
+        <span class="app-tag"><img src="/assets/images/sirad_logo.png" alt=""><span>SIRAD · ASIGNACIÓN</span></span>
+        <h2>La unidad correcta, al instante.</h2>
+        <div class="flow-strip" style="margin-bottom:18px">
+          <span class="node sirad on"><b>Reporte</b></span>
+          <span class="arrow">→</span>
+          <span class="node sirad on"><b>Asignación</b></span>
+          <span class="arrow">→</span>
+          <span class="node sira on"><b>Unidad</b></span>
+        </div>
+        <div class="steps">
+          <span>🧭 Unidades disponibles</span>
+          <span>✅ Asignación confirmada</span>
+        </div>
+      </div>
+      <div class="device3d device-hero dev-sirad" id="devAsig">
+        <div class="device-tag mono" id="tagAsig">Asignar unidad</div>
+        <canvas id="canvasAsig"></canvas>
+      </div>
+    </div>
+
+    <!-- Scene 7 — Seguimiento en tiempo real -->
+    <div class="scene s7" data-scene="6">
+      <div class="split-col">
+        <span class="cap"><b>SIRAD</b> <span>· mapa institucional en vivo</span></span>
+        <div class="device3d device-split dev-sirad" id="devSplitSirad">
+          <canvas id="canvasSplitSirad"></canvas>
+        </div>
+      </div>
+      <div class="split-col">
+        <span class="cap"><b>SIRA</b> <span>· seguimiento del ciudadano</span></span>
+        <div class="device3d device-split dev-sira" id="devSplitSira">
+          <canvas id="canvasSplitSira"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scene 8 — Comunicación y cierre -->
+    <div class="scene s8" data-scene="7">
+      <div class="hero-copy sirad">
+        <span class="app-tag"><img src="/assets/images/sirad_logo.png" alt=""><span>SEGUIMIENTO DEL CASO</span></span>
+        <h2 id="s8title">Del primer contacto al cierre.</h2>
+        <div class="steps">
+          <span>💬 Comunicación directa</span>
+          <span>📍 Estado en vivo</span>
+        </div>
+      </div>
+      <div class="device3d device-hero dev-sirad" id="devCierre">
+        <div class="device-tag mono" id="tagCierre">Sala / Chat</div>
+        <canvas id="canvasCierre"></canvas>
+      </div>
+    </div>
+
+    <!-- Scene 9 — Cierre de marca -->
+    <div class="scene s9" data-scene="8">
+      <div class="lockup">
+        <img src="/assets/images/sira_logo.png" alt="Logo SIRA">
+        <span class="x">↔</span>
+        <img src="/assets/images/sirad_logo.png" alt="Logo SIRAD">
+      </div>
+      <p class="tag">Del reporte ciudadano<br>a la respuesta institucional.</p>
+      <p class="sub">IA · GEOLOCALIZACIÓN · COMUNICACIÓN · SEGUIMIENTO</p>
+      <p class="credit">Un ecosistema para el Gobierno Autónomo Municipal de Cochabamba</p>
+    </div>
+  </div>
+
+  <p class="caption-bar"><span id="captionText"></span></p>
+
+  <div class="controls">
+    <button class="ctrl-btn" id="playBtn" type="button" aria-label="Pausar">
+      <svg viewBox="0 0 24 24" fill="currentColor" id="playIcon"><path d="M6 4l14 8-14 8V4z"/></svg>
+    </button>
+    <div class="progress" id="progress"><i id="progressFill"></i></div>
+    <div class="scene-dots" id="sceneDots"></div>
+  </div>
+
+  <div class="legend">
+    <span class="row"><span class="sw" style="background:#4BC1EB"></span>Cian — SIRA (ciudadano)</span>
+    <span class="row"><span class="sw" style="background:#3E7BFA"></span>Azul eléctrico — SIRAD (institucional)</span>
+    <span class="row"><span class="sw" style="background:#9B6CD3"></span>Violeta — IA</span>
+    <span class="row"><span class="sw" style="background:#FF3B6B"></span>Magenta — emergencia</span>
+    <span class="row"><span class="sw" style="background:#22946A"></span>Verde — completado</span>
+  </div>
+
+  <footer class="foot">
+    <span>9 escenas · ~63s por ciclo · capturas reales de una prueba en vivo (14/09/2026)</span>
+    <span class="mono">SIRA (arconde-gamc) · SIRAD (sosapk) · GAMC</span>
+  </footer>
+</div>
+
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>

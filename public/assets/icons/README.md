@@ -1,0 +1,1 @@
+Los iconos de esta animatica son SVG inline dentro de index.html (no archivos separados), para poder colorearlos con currentColor segun el estado/marca. Esta carpeta queda reservada por si luego se quiere extraer alguno como archivo .svg independiente.
