@@ -6,6 +6,7 @@ import './styles.css';
     {ms:3200,  cap:""},
     {ms:3400,  cap:"Cuando ocurre una emergencia, cada segundo importa."},
     {ms:11800, cap:"SIRA: reporta lo que ocurre, en segundos."},
+    {ms:4200,  cap:"Llamado por IA: usa SIRA para tu reporte."},
     {ms:2600,  cap:"Información lista para ser gestionada."},
     {ms:13000, cap:"SIRAD: recibe, prioriza y gestiona cada reporte en tiempo real."},
     {ms:13000, cap:"La unidad adecuada, elegida por el operador."},
@@ -93,7 +94,7 @@ import './styles.css';
 
     if (idx === 1){ document.getElementById('s2timer').textContent = fmtClock(local); }
 
-    if (idx === 3){
+    if (idx === 4){
       var card = document.getElementById('incidentCard');
       card.classList.toggle('fly', local > 1900);
     }

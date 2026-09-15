@@ -49,6 +49,7 @@
     </div>
     <div class="kicker-live"><span class="dot"></span>EN VIVO · DEMO</div>
     <div class="clock-live mono" id="clockLive">00:00</div>
+    <div class="stage-credit mono">UPDS</div>
 
     <!-- Scene 1 — Ecosistema -->
     <div class="scene s1" data-scene="0">
@@ -93,8 +94,25 @@
       </div>
     </div>
 
-    <!-- Scene 4 — El reporte se vuelve incidente operativo -->
-    <div class="scene s4" data-scene="3">
+    <!-- Scene 4 — Agente de IA para redactar el reporte -->
+    <div class="scene s-hero s-agent" data-scene="3">
+      <div class="hero-copy sira">
+        <span class="app-tag"><img src="/assets/images/sira_logo.png" alt=""><span>SIRA · ASISTENTE IA</span></span>
+        <h2>Llamado por IA.<br>Usa SIRA para tu reporte.</h2>
+        <div class="steps">
+          <span>🤖 Agente de IA</span>
+          <span>💬 Responde y guía</span>
+          <span>📝 Redacta por ti</span>
+        </div>
+      </div>
+      <div class="device3d device-hero dev-sira" id="devAgent">
+        <div class="device-tag mono" id="tagAgent">Llamado por IA</div>
+        <canvas id="canvasAgent"></canvas>
+      </div>
+    </div>
+
+    <!-- Scene 5 — El reporte se vuelve incidente operativo -->
+    <div class="scene s4" data-scene="4">
       <div class="flow-line"></div>
       <div class="s4-stack">
         <div class="flow-strip">
@@ -123,8 +141,8 @@
       </div>
     </div>
 
-    <!-- Scene 5 — SIRAD: recepción y gestión institucional -->
-    <div class="scene s-hero" data-scene="4">
+    <!-- Scene 6 — SIRAD: recepción y gestión institucional -->
+    <div class="scene s-hero" data-scene="5">
       <div class="hero-copy sirad">
         <span class="app-tag"><img src="/assets/images/sirad_logo.png" alt=""><span>SIRAD · PANEL INSTITUCIONAL</span></span>
         <h2>Gestiona en tiempo real.</h2>
@@ -140,8 +158,8 @@
       </div>
     </div>
 
-    <!-- Scene 6 — Asignación de la unidad -->
-    <div class="scene s6" data-scene="5">
+    <!-- Scene 7 — Asignación de la unidad -->
+    <div class="scene s6" data-scene="6">
       <div class="hero-copy sirad">
         <span class="app-tag"><img src="/assets/images/sirad_logo.png" alt=""><span>SIRAD · ASIGNACIÓN</span></span>
         <h2>La unidad correcta, al instante.</h2>
@@ -163,24 +181,24 @@
       </div>
     </div>
 
-    <!-- Scene 7 — Seguimiento en tiempo real -->
-    <div class="scene s7" data-scene="6">
+    <!-- Scene 8 — Seguimiento en tiempo real -->
+    <div class="scene s7" data-scene="7">
       <div class="split-col">
-        <span class="cap"><b>SIRAD</b> <span>· mapa institucional en vivo</span></span>
+        <span class="cap"><img class="cap-logo" src="/assets/images/sirad_logo.png" alt="Logo SIRAD"><b>SIRAD</b> <span>· mapa institucional en vivo</span></span>
         <div class="device3d device-split dev-sirad" id="devSplitSirad">
           <canvas id="canvasSplitSirad"></canvas>
         </div>
       </div>
       <div class="split-col">
-        <span class="cap"><b>SIRA</b> <span>· seguimiento del ciudadano</span></span>
+        <span class="cap"><img class="cap-logo" src="/assets/images/sira_logo.png" alt="Logo SIRA"><b>SIRA</b> <span>· seguimiento del ciudadano</span></span>
         <div class="device3d device-split dev-sira" id="devSplitSira">
           <canvas id="canvasSplitSira"></canvas>
         </div>
       </div>
     </div>
 
-    <!-- Scene 8 — Comunicación y cierre -->
-    <div class="scene s8" data-scene="7">
+    <!-- Scene 9 — Comunicación y cierre -->
+    <div class="scene s8" data-scene="8">
       <div class="hero-copy sirad">
         <span class="app-tag"><img src="/assets/images/sirad_logo.png" alt=""><span>SEGUIMIENTO DEL CASO</span></span>
         <h2 id="s8title">Del primer contacto al cierre.</h2>
@@ -195,8 +213,8 @@
       </div>
     </div>
 
-    <!-- Scene 9 — Cierre de marca -->
-    <div class="scene s9" data-scene="8">
+    <!-- Scene 10 — Cierre de marca -->
+    <div class="scene s9" data-scene="9">
       <div class="lockup">
         <img src="/assets/images/sira_logo.png" alt="Logo SIRA">
         <span class="x">↔</span>
@@ -205,6 +223,7 @@
       <p class="tag">Del reporte ciudadano<br>a la respuesta institucional.</p>
       <p class="sub">IA · GEOLOCALIZACIÓN · COMUNICACIÓN · SEGUIMIENTO</p>
       <p class="credit">Un ecosistema para el Gobierno Autónomo Municipal de Cochabamba</p>
+      <p class="credit credit-uni">Proyecto académico · Universidad Privada de Santa Cruz de la Sierra (UPDS)</p>
     </div>
   </div>
 
@@ -227,8 +246,8 @@
   </div>
 
   <footer class="foot">
-    <span>9 escenas · ~63s por ciclo · capturas reales de una prueba en vivo (14/09/2026)</span>
-    <span class="mono">SIRA (arconde-gamc) · SIRAD (sosapk) · GAMC</span>
+    <span>10 escenas · ~67s por ciclo · capturas reales de una prueba en vivo (14/09/2026)</span>
+    <span class="mono">SIRA (arconde-gamc) · SIRAD (sosapk) · GAMC · SCI</span>
   </footer>
 </div>
 

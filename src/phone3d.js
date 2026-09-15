@@ -37,6 +37,26 @@ function createPhoneViewer(canvas, opts){
   let ready = false;
   let rotY = opts.startAngle != null ? opts.startAngle : 0.3;
 
+  let agentImgObj = null, agentLogoObj = null;
+  if (opts.agentMode){
+    agentImgObj = new Image(); agentImgObj.src = opts.agentImg;
+    agentLogoObj = new Image(); agentLogoObj.src = opts.agentLogo;
+  }
+
+  function wrapText(ctx, text, cx, y, maxWidth, lineHeight){
+    const words = text.split(' ');
+    let line = '', lines = [];
+    for (let i = 0; i < words.length; i++){
+      const test = line ? line + ' ' + words[i] : words[i];
+      if (ctx.measureText(test).width > maxWidth && line){
+        lines.push(line); line = words[i];
+      } else { line = test; }
+    }
+    if (line) lines.push(line);
+    const startY = y - (lines.length - 1) * lineHeight * 0.5;
+    lines.forEach((l, i) => ctx.fillText(l, cx, startY + i * lineHeight));
+  }
+
   phoneReady.then((template) => {
     const model = template.clone(true);
     model.traverse((n) => { if (n.isMesh) { n.castShadow = false; n.receiveShadow = false; } });
@@ -182,6 +202,43 @@ function createPhoneViewer(canvas, opts){
         }
       }
 
+      if (opts.agentMode){
+        const w = screenCanvas.width, h = screenCanvas.height;
+        screenCtx.save();
+        const r = 16;
+        screenCtx.beginPath();
+        screenCtx.moveTo(r, 0);
+        screenCtx.arcTo(w, 0, w, h, r);
+        screenCtx.arcTo(w, h, 0, h, r);
+        screenCtx.arcTo(0, h, 0, 0, r);
+        screenCtx.arcTo(0, 0, w, 0, r);
+        screenCtx.closePath();
+        screenCtx.clip();
+
+        screenCtx.fillStyle = '#ffffff';
+        screenCtx.fillRect(0, 0, w, h);
+
+        if (agentLogoObj && agentLogoObj.complete && agentLogoObj.naturalWidth){
+          const lw = w * 0.46, lh = lw * (agentLogoObj.naturalHeight / agentLogoObj.naturalWidth);
+          screenCtx.drawImage(agentLogoObj, (w - lw) / 2, h * 0.08, lw, lh);
+        }
+
+        if (agentImgObj && agentImgObj.complete && agentImgObj.naturalWidth){
+          const t = globalMs / 1000;
+          const bounce = Math.sin(t * 2.4) * (h * 0.035);
+          const iw = w * 0.46, ih = iw * (agentImgObj.naturalHeight / agentImgObj.naturalWidth);
+          screenCtx.drawImage(agentImgObj, (w - iw) / 2, h * 0.36 + bounce, iw, ih);
+        }
+
+        screenCtx.fillStyle = '#B30F2E';
+        screenCtx.textAlign = 'center';
+        screenCtx.font = '700 14px system-ui, sans-serif';
+        wrapText(screenCtx, opts.agentText || '', w / 2, h * 0.82, w * 0.84, 17);
+
+        screenCtx.restore();
+        screenTexture.needsUpdate = true;
+      }
+
       if (opts.fadeMode && pendingImg){
         if (fadeStart == null) fadeStart = globalMs;
         const t = Math.min(1, (globalMs - fadeStart) / FADE_MS);
@@ -259,6 +316,14 @@ function boot(){
       { ms: 2200, tag: 'Reporte enviado' }
     ], 'tagSira', { startAngle: -0.25 });
 
+  register('agent', 'canvasAgent', [], [], null, {
+    startAngle: -0.22,
+    agentMode: true,
+    agentImg: '/assets/images/sira.png',
+    agentLogo: '/assets/images/sira_logo.png',
+    agentText: 'Llamado por IA · Usa SIRA para tu reporte'
+  });
+
   register('sirad', 'canvasSirad',
     ['/assets/images/sirad_list.jpg', '/assets/images/sirad_map.jpg', '/assets/images/sirad_info.jpg', '/assets/images/sirad_chat.jpg', '/assets/images/sirad_asig.jpg'],
     [
@@ -322,10 +387,10 @@ function boot(){
     };
 
     if (sceneIdx === 2) applyActive('sira', localMs);
-    if (sceneIdx === 4) applyActive('sirad', localMs);
-    if (sceneIdx === 5) applyActive('asig', localMs);
-    if (sceneIdx === 7) applyActive('cierre', localMs);
-    if (sceneIdx === 6){
+    if (sceneIdx === 5) applyActive('sirad', localMs);
+    if (sceneIdx === 6) applyActive('asig', localMs);
+    if (sceneIdx === 8) applyActive('cierre', localMs);
+    if (sceneIdx === 7){
       applyActive('splitSirad', localMs);
       applyActive('splitSira', localMs);
     }

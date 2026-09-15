@@ -170,6 +170,11 @@ header.head{ display:flex; flex-direction:column; gap:6px; }
 }
 @keyframes blink{ 0%,100%{opacity:1;} 50%{opacity:.25;} }
 .clock-live{ position:absolute; top:18px; right:22px; font-family:'IBM Plex Mono',monospace; font-size:clamp(10px,.9vw,13px); color:var(--stage-ink-soft); z-index:5; }
+.stage-credit{
+  position:absolute; bottom:14px; right:22px;
+  font-family:'IBM Plex Mono',monospace; font-size:clamp(9px,.8vw,11px); letter-spacing:.1em;
+  color:var(--stage-ink-soft); opacity:.55; text-transform:uppercase; z-index:5;
+}
 
 /* ---- generic device frame (real screenshots inside) ---- */
 .device{
@@ -369,9 +374,16 @@ header.head{ display:flex; flex-direction:column; gap:6px; }
 /* ---- Scene 7: split live ---- */
 .s7{ gap:5%; }
 .split-col{ flex:1 1 0; display:flex; flex-direction:column; gap:8px; align-items:center; }
-.split-col .cap{ font-family:'IBM Plex Mono',monospace; font-size:clamp(12.5px,1.1vw,15px); letter-spacing:.05em; text-align:center; font-weight:600; }
+.split-col .cap{ display:inline-flex; align-items:center; gap:7px; font-family:'IBM Plex Mono',monospace; font-size:clamp(12.5px,1.1vw,15px); letter-spacing:.05em; text-align:center; font-weight:600; }
 .split-col .cap b{ color:#fff; font-size:1.05em; }
 .split-col .cap span{ color:var(--stage-ink-soft); font-weight:400; }
+.split-col .cap-logo{ width:20px; height:20px; object-fit:contain; border-radius:6px; }
+.s7.active .split-col:first-child .cap-logo{ animation:capPulse 1.9s ease-in-out infinite; --pulse-color:var(--sirad-blue); }
+.s7.active .split-col:last-child .cap-logo{ animation:capPulse 1.9s ease-in-out .3s infinite; --pulse-color:var(--sira-cyan); }
+@keyframes capPulse{
+  0%,100%{ transform:scale(1); filter:drop-shadow(0 0 0 transparent); }
+  50%{ transform:scale(1.12); filter:drop-shadow(0 0 7px var(--pulse-color)); }
+}
 .link-svg{ position:absolute; inset:0; width:100%; height:100%; pointer-events:none; z-index:1; opacity:.55; }
 
 /* ---- Scene 8: comunicación / cierre ---- */
@@ -395,6 +407,8 @@ header.head{ display:flex; flex-direction:column; gap:6px; }
 .s9.active .sub{ opacity:1; }
 .s9 .credit{ font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--stage-ink-soft); opacity:0; transition:opacity .6s ease .75s; }
 .s9.active .credit{ opacity:1; }
+.s9 .credit-uni{ margin-top:4px; opacity:0; transition:opacity .6s ease .9s; font-size:11.5px; letter-spacing:.02em; }
+.s9.active .credit-uni{ opacity:1; }
 
 /* ===== caption + controls ===== */
 .caption-bar{ min-height:30px; display:flex; align-items:center; justify-content:center; text-align:center; padding:0 8px; }
