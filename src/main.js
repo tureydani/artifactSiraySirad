@@ -12,7 +12,8 @@ import './styles.css';
     {ms:13000, cap:"La unidad adecuada, elegida por el operador."},
     {ms:6600,  cap:"Seguimiento en tiempo real, de la central a la calle."},
     {ms:5800,  cap:"Comunicación y seguimiento durante toda la atención."},
-    {ms:3400,  cap:"Del reporte a la respuesta."}
+    {ms:3400,  cap:"Del reporte a la respuesta."},
+    {ms:8600,  cap:"Universidad Privada Domingo Savio · Profesionales + Humanos."}
   ];
   var starts = [0]; for (var i=0;i<SCENES.length;i++) starts.push(starts[i]+SCENES[i].ms);
   var TOTAL = starts[starts.length-1];
